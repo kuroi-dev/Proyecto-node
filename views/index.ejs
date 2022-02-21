@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Frist App Nodejs of Apofis">
+    <meta name="author" content="Kuroi Thanks to Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <title>Apofis</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="resources/css/cover.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
+</head>
+
+<body class="d-flex h-100 text-center text-white">
+    <div id="background-mod">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="mb-auto container" >
+                <div  class="row">
+                    <div  class="colum col-md-6">
+                        <img id="logo" src="resources/img/logo/LOGO-COMPLETO-BLANCO.svg" alt="">
+                    </div>
+                    <div  class="colum col-md-6">
+                        <nav class="nav nav-masthead" id="cont-nav1">
+                            <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="nav-link text-white mb-3 fw-small">HOME</a>
+                            <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="nav-link text-white mb-3 fw-small">LOGIN</a>
+                            <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="nav-link text-white mb-3 fw-small">CONTACTO</a>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="block">
+                    <div class="carousel-item active" data-bs-interval="100000000000" id="home-home">
+                        <main class="px-3 d-block w-100">
+                            <h1 id="text1">Estamos Cambiando...</h1>
+                            <p class="lead" id="text2">Creando un nuevo concepto en robotica y automatizacion, Apofis, se encuentra en un cambio importante, focalizando sus energias solo en la creacion de Bots de alta complejidad con el fin de automatizar tareas cotidianas de informatica</p>
+                            <p class="lead">
+                                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Interesado ?</a>
+                            </p>
+                        </main>
+                    </div>
+
+
+                    <div class="carousel-item" data-bs-interval="100000000000 " id="login-home">
+                        <main class="px-3 d-block w-100">
+                            <div class=" d-flex p-2" id="interlogin">
+                                <div class="text-center" id="interlogin2">
+                                    <main class="form-signin" id="block">
+
+                                        <form id="formulario">
+                                            <h1 class="h2 mb-3 fw-small">Login</h1>
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                                <label for="floatingInput" id="interBlock">Email</label>
+                                            </div>
+                                            <div class="form-floating">
+                                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                                <label for="floatingPassword" id="interBlock">Password</label>
+                                            </div>
+
+                                            <div class="checkbox mb-3">
+                                            </div>
+                                            <button id="boton1" class="btn btn-lg btn-secondary" type="submit">Login</button>
+                                            <a id="boton1" class="btn btn-lg btn-primary"  type="button" href="/register">Registro</a>
+                                        </form>
+                                    </main>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="100000000000" id="contact-home">
+                        <div class="container row col-md-12 well well-sm">
+                            <form class="form-horizontal" method="post">
+                                <div id="cantacto" style="padding: 5%;">
+                                    <legend class="h2 mb-3 fw-small">Contacto</legend>
+                                    <div class="form-group" id="espacio">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                        <div>
+                                            <input id="fname" name="name" type="text" placeholder="Nombre" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="espacio">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                        <div >
+                                            <input id="email" name="email" type="text" placeholder="Email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="espacio">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                                        <div>
+                                            <textarea class="form-control" id="message" name="message" placeholder="Escribe tu consulta" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="espacio">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-primary btn-lg">Enviar consulta</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>        
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <footer class="mt-auto text-white-50">
+                <p>Todos los derechos reservados a Apofis S.A. - 2019</p>
+            </footer>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>
