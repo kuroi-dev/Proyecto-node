@@ -69,13 +69,21 @@ body {
 
 #home-home p {
     padding: 2%;
+    height: 100%;
 }
+
+#home-home{
+    margin-top: 5%;
+}
+
 
 #login-home {
     justify-content: center;
     text-align: center;
     align-items: center;
 }
+
+
 
 #interlogin {
     width: 100%;
@@ -90,10 +98,10 @@ body {
 
 #interlogin2 {
     width: 70%;
-}f
+}
 
-#block {
-    max-width: none;
+#carouselExampleIndicators {
+    height: 50%;
 }
 
 #formulario {
@@ -117,6 +125,9 @@ body {
 }
 
 #espacio{
+    margin: 1%;
+}
+#espacio-btn{
     margin: 1%;
 }
 
@@ -153,9 +164,17 @@ body {
     padding: 5%;
 }
 
+body.swal2-height-auto{
+    height: none;
+}
 
+.swal2-shown {
+    height: none;
+}
 
-
+.swal2-height-auto{
+    height: none;
+}
 
 @media (max-width: 768px) {
     #cont-nav1{
@@ -178,5 +197,12 @@ body {
     }
     #boton1{
         width: 100%;
+    }
+    #interlogin2 {
+        width: 100%;
+    }
+    #espacio-btn{
+        width: 70%;
+        margin: auto;
     }
 }

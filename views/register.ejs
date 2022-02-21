@@ -29,57 +29,68 @@
                     </div>
                     <div  class="colum col-md-6">
                         <nav class="nav nav-masthead" id="cont-nav1">
-                            <a type="button" href="/" class="nav-link text-white mb-3 fw-small">Volver a HOME</a>
+                            <a type="button" href="/" class="nav-link text-white mb-3 fw-small">HOME</a>
                         </nav>
                     </div>
                 </div>
             </header>
 
-            <div id="register-home">
-                <div class="register-form">
-                    <h1 class="h2 mb-3 fw-small">Formulario de registro</h1>
-                    <form id="form" action="/register"  method="POST">
-
-                        <label for="email" id="intersBlock">Email</label>
-                        <input required type="text" name="email">
-
-                        <label for="user" id="intersBlock">User</label>
-                        <input required type="text" name="user">
-                        
-                        <label for="name" id="interBlock">Name</label>
-                        <input required type="text"  name="name">
-                        
-                        <label for="pass" id="interBlock">Password</label>
-                        <input required type="password" name="pass" class="form-control" id="floatingPassword" rows="4" placeholder="password">
-
-                        <button class="btn btn-lg btn-primary" type="submit" value="Save">Registrarme</button>
-                    </form>
+            <form class="form-horizontal" id="form" action="/register"  method="POST">
+                <div id="cantacto" style="padding: 5%;">
+                    <legend class="h2 mb-3 fw-small">Formulario de registro</legend>
+                    <div class="form-group" id="espacio">
+                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                        <div>
+                            <input id="email" name="email" type="email" placeholder="Email" class="form-control" for="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group" id="espacio">
+                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                        <div >
+                            <input id="user" name="user" type="text" placeholder="User" class="form-control" for="user" required>
+                        </div>
+                    </div>
+                    <div class="form-group" id="espacio">
+                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                        <div >
+                            <input id="name" name="name" type="text" placeholder="Name" class="form-control" for="name" required>
+                        </div>
+                    </div>
+                    <div class="form-group" id="espacio">
+                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                        <div >
+                            <input id="pass" name="pass" type="password" placeholder="Password" class="form-control" for="pass" required>
+                        </div>
+                    </div>
+                    <div class="form-group" id="espacio">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-lg btn-primary" type="submit" value="Save">Registrarme</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </form>        
             
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-            <% if(typeof alert != "undefined") { %>
-                <script>
-                    Swal.fire({
-                        title: '<%= alertTitle %>',
-                        text:'<%= alertMenssage %>',
-                        icon:'<%= alertIcon %>',
-                        showConfirmButton:<%= showConfirmButton %>,
-                        timer:<%= timer %>,
-                    }).then(()=>{
-                        window.location='/ <%= ruta %>'
-                    })
-                </script>
-            <% } %>
 
             <footer class="mt-auto text-white-50">
                 <p>Todos los derechos reservados a Apofis S.A. - 2019</p>
             </footer>
         </div>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <% if(typeof alert != "undefined") { %>
+            <script>
+                Swal.fire({
+                    title: '<%= alertTitle %>',
+                    text:'<%= alertMenssage %>',
+                    icon:'<%= alertIcon %>',
+                    showConfirmButton:<%= showConfirmButton %>,
+                    timer:<%= timer %>,
+                    heightAuto:false
+                }).then(()=>{
+                    window.location='/ <%= ruta %>'
+                })
+            </script>
+        <% } %>    
     </div>
-        
-    
-   
 </body>
 </html>

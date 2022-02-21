@@ -19,7 +19,7 @@
     <link href="resources/css/style.css" rel="stylesheet">
 </head>
 
-<body class="d-flex h-100 text-center text-white">
+<body class="text-center text-white">
     <div id="background-mod">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="mb-auto container" >
@@ -39,7 +39,7 @@
 
 
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner" id="block">
+                <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="100000000000" id="home-home">
                         <main class="px-3 d-block w-100">
                             <h1 id="text1">Estamos Cambiando...</h1>
@@ -57,22 +57,30 @@
                                 <div class="text-center" id="interlogin2">
                                     <main class="form-signin" id="block">
 
-                                        <form id="formulario" action="/auth"  method="POST">
-                                            <h1 class="h2 mb-3 fw-small">Login</h1>
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" name="user" id="user" placeholder="User" required>
-                                                <label for="floatingInput" id="user">User</label>
+                                        <form class="form-horizontal" id="formulario" action="/auth"  method="POST" >
+                                            <div id="cantacto">
+                                                <legend class="h1 mb-3 fw-small">Login</legend>
+                                                <div class="form-group" id="espacio">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                                    <div>
+                                                        <input type="text" class="form-control" name="user" id="user" placeholder="User" required placeholder="User">
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="form-group" id="espacio">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                                    <div >
+                                                        <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required placeholder="Password">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" id="espacio-btn">
+                                                    <div class="col-md-12 text-center">
+                                                        <button id="boton1" class="btn btn-lg btn-success" type="submit" value="Login">Login</button>
+                                                        <a id="boton1" class="btn btn-lg btn-primary"  type="button" href="/register">Registro</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-floating">
-                                                <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required>
-                                                <label for="floatingPassword" id="pass">Password</label>
-                                            </div>
-
-                                            <div class="checkbox mb-3">
-                                            </div>
-                                            <button id="boton1" class="btn btn-lg btn-secondary" type="submit" value="Login">Login</button>
-                                            <a id="boton1" class="btn btn-lg btn-primary"  type="button" href="/register">Registro</a>
-                                        </form>
+                                        </form>        
                                     </main>
                                 </div>
                             </div>
@@ -83,7 +91,7 @@
                         <div class="container row col-md-12 well well-sm">
                             <form class="form-horizontal" method="post">
                                 <div id="cantacto" style="padding: 5%;">
-                                    <legend class="h2 mb-3 fw-small">Contacto</legend>
+                                    <legend class="h1 mb-3 fw-small">Contacto</legend>
                                     <div class="form-group" id="espacio">
                                         <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                                         <div>
@@ -99,12 +107,12 @@
                                     <div class="form-group" id="espacio">
                                         <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                                         <div>
-                                            <textarea class="form-control" id="message" name="" placeholder="Escribe tu consulta" rows="5"></textarea>
+                                            <textarea class="form-control" id="message" name="" placeholder="Escribe tu consulta" rows="4"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group" id="espacio">
-                                        <div class="col-md-12 text-center">
-                                            <button type="submit" class="btn btn-primary btn-lg">Enviar consulta</button>
+                                        <div class="col-md-12 text-center" id="espacio">
+                                            <button type="submit" class="btn btn-success btn-lg">Enviar consulta</button>
                                         </div>
                                     </div>
                                 </div>
@@ -123,8 +131,9 @@
                         icon:'<%= alertIcon %>',
                         showConfirmButton:<%= showConfirmButton %>,
                         timer:<%= timer %>,
+                        heightAuto:false
                     }).then(()=>{
-                        window.location='/ <%= ruta %>'
+                        window.location='/<%=ruta%>'
                     })
                 </script>
             <% } %>

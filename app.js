@@ -76,9 +76,26 @@ app.post('/auth',async(req, res)=>{
     if(user && pass){
         connection.query('SELECT * FROM users_apofis WHERE user = ?',[user], async (error, result)=>{
             if(result.length == 0 || !(await bcryptjs.compare(pass, result[0].pass))){
-                res.send('no logeado');
+                res.render('',{
+                    alert: true,
+                    alertTitle: "ERROR",
+                    alertMenssage: "Usuario y/o password incorrectos! ",
+                    alertIcon: 'error',
+                    showConfirmButton: true,
+                    timer: false,
+                    ruta: ''
+                });
             }else{
-                res.send('logeado');
+                req.session.name = result[0].name
+                res.render('',{
+                    alert: true,
+                    alertTitle: "Conexion Exitosa",
+                    alertMenssage: "LOGIN CORRECTO!!!",
+                    alertIcon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    ruta: ''
+                });
             }
         })
     }
