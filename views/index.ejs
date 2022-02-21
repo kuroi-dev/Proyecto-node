@@ -57,20 +57,20 @@
                                 <div class="text-center" id="interlogin2">
                                     <main class="form-signin" id="block">
 
-                                        <form id="formulario">
+                                        <form id="formulario" action="/auth"  method="POST">
                                             <h1 class="h2 mb-3 fw-small">Login</h1>
                                             <div class="form-floating">
-                                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                                <label for="floatingInput" id="interBlock">Email</label>
+                                                <input type="text" class="form-control" name="user" id="user" placeholder="User" required>
+                                                <label for="floatingInput" id="user">User</label>
                                             </div>
                                             <div class="form-floating">
-                                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                                <label for="floatingPassword" id="interBlock">Password</label>
+                                                <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required>
+                                                <label for="floatingPassword" id="pass">Password</label>
                                             </div>
 
                                             <div class="checkbox mb-3">
                                             </div>
-                                            <button id="boton1" class="btn btn-lg btn-secondary" type="submit">Login</button>
+                                            <button id="boton1" class="btn btn-lg btn-secondary" type="submit" value="Login">Login</button>
                                             <a id="boton1" class="btn btn-lg btn-primary"  type="button" href="/register">Registro</a>
                                         </form>
                                     </main>

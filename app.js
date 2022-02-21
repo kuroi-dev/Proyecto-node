@@ -45,10 +45,11 @@ app.get('/register',(req,res)=>{
 app.post('/register', async(req,res)=>{
     const user = req.body.user;
     const name = req.body.name;
+    const email = req.body.email;
     const pass = req.body.pass;
     let passwordHaash = await bcryptjs.hash(pass , 8);
 
-    connection.query('INSERT INTO users_apofis SET ?', {user:user,name:name,pass:passwordHaash},async(error,results)=>{
+    connection.query('INSERT INTO users_apofis SET ?', {user:user,name:name,email:email,pass:passwordHaash},async(error,results)=>{
         if(error){
             console.log(error);
         }else{
@@ -65,6 +66,25 @@ app.post('/register', async(req,res)=>{
         }
     });
 })
+
+// 11 Autentication
+
+app.post('/auth',async(req, res)=>{
+    const user = req.body.user;
+    const pass = req.body.pass;
+    let passwordHaash = await bcryptjs.hash(pass, 8);
+    if(user && pass){
+        connection.query('SELECT * FROM users_apofis WHERE user = ?',[user], async (error, result)=>{
+            if(result.length == 0 || !(await bcryptjs.compare(pass, result[0].pass))){
+                res.send('Error Login');
+            }else{
+                res.send("Login sussfull");
+            }
+        })
+    }
+})
+
+
 
 
 app.listen(3000, (req , res)=>{
