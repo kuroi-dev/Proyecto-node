@@ -60,7 +60,7 @@ app.post('/register', async(req,res)=>{
                 alertMenssage: "Registro exitoso!",
                 alertIcon: 'success',
                 showConfirmButton: false,
-                time: 1500,
+                timer: 1500,
                 ruta: ''
             })
         }
@@ -76,9 +76,9 @@ app.post('/auth',async(req, res)=>{
     if(user && pass){
         connection.query('SELECT * FROM users_apofis WHERE user = ?',[user], async (error, result)=>{
             if(result.length == 0 || !(await bcryptjs.compare(pass, result[0].pass))){
-                res.send('Error Login');
+                res.send('no logeado');
             }else{
-                res.send("Login sussfull");
+                res.send('logeado');
             }
         })
     }
