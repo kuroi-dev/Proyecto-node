@@ -1,0 +1,32 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: none;
+}
+
+#background-mod {
+    background-color: rgba(0, 0, 0, 0.0);
+    width: 100%;
+    height: 100%;
+}
+#logo{
+    width:100%; 
+    height:auto;
+}
+#cosa{
+    width: 100%;
+}
+#main-1{
+    width: 100%;
+    height: 100%;
+    padding: 1% 2%;
+}
+#nav-main{
+    padding-bottom: 1%;
+}

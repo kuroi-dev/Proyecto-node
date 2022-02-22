@@ -121,6 +121,14 @@ app.get('/login',(req, res)=>{
     }
 });
 
+//13 Logout
+app.get('/logout',(req, res)=>{
+    req.session.destroy(()=>{
+        res.redirect('/');
+    })
+
+});
+
 
 app.listen(3000, (req , res)=>{
     console.log('Server UP running in hhtp://localhost:3000');
