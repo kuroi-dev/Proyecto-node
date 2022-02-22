@@ -39,6 +39,9 @@ app.get('/',(req,res)=>{
 app.get('/register',(req,res)=>{
     res.render('register');
 })
+app.get('/login',(req,res)=>{
+    res.render('login');
+})
 
 
 // 10 - registro
@@ -86,6 +89,7 @@ app.post('/auth',async(req, res)=>{
                     ruta: ''
                 });
             }else{
+                req.session.loggedin = true;
                 req.session.name = result[0].name
                 res.render('',{
                     alert: true,
@@ -94,14 +98,28 @@ app.post('/auth',async(req, res)=>{
                     alertIcon: 'success',
                     showConfirmButton: false,
                     timer: 1500,
-                    ruta: ''
+                    ruta: 'login'
                 });
             }
         })
     }
 })
 
+//12 auth pages
 
+app.get('/login',(req, res)=>{
+    if(req.session.loggedin){
+        res.render('login',{
+            login:true,
+            name:req.session.name
+        });
+    }else{
+        res.render('login',{
+            login: false,
+            name:'Debe iniciar sesion'
+        })
+    }
+});
 
 
 app.listen(3000, (req , res)=>{
