@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 // 6 Invocanmos bcryptjs
-const bcryptjs = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 // Revisar este codigo para credenciales y sesiones     
 // 7 Invocamos express-session para las Variables de Sesion
@@ -26,22 +26,26 @@ const session = require('express-session');
 app.use(session({
     secret:'secret',
     resave: true,
-    saveUninitialized:true
+    saveUninitialized: true
 }));
 
 // 8 Ivocando el modulo de conexion DB
 const connection = require('./database/db');
 
 // 9 Estableciendo las Rutas
-app.get('/',(req,res)=>{
-    res.render('index');
-})
+
 app.get('/register',(req,res)=>{
     res.render('register');
 })
-app.get('/login',(req,res)=>{
-    res.render('login');
+
+app.get('/',(req, res)=>{
+    res.render('index');
 })
+
+app.get('/error.404',(req,res)=>{
+	res.render('error-404')
+})
+
 
 
 // 10 - registro
@@ -50,7 +54,7 @@ app.post('/register', async(req,res)=>{
     const name = req.body.name;
     const email = req.body.email;
     const pass = req.body.pass;
-    let passwordHaash = await bcryptjs.hash(pass , 8);
+    let passwordHaash = await bcrypt.hash(pass , 8);
 
     connection.query('INSERT INTO users_apofis SET ?', {user:user,name:name,email:email,pass:passwordHaash},async(error,results)=>{
         if(error){
@@ -70,70 +74,93 @@ app.post('/register', async(req,res)=>{
     });
 })
 
-// 11 Autentication
 
-app.post('/auth',async(req, res)=>{
-    const user = req.body.user;
-    const pass = req.body.pass;
-    let passwordHaash = await bcryptjs.hash(pass, 8);
-    if(user && pass){
-        connection.query('SELECT * FROM users_apofis WHERE user = ?',[user], async (error, result)=>{
-            if(result.length == 0 || !(await bcryptjs.compare(pass, result[0].pass))){
-                res.render('',{
-                    alert: true,
-                    alertTitle: "ERROR",
-                    alertMenssage: "Usuario y/o password incorrectos! ",
-                    alertIcon: 'error',
-                    showConfirmButton: true,
-                    timer: false,
-                    ruta: ''
-                });
-            }else{
-                req.session.loggedin = true;
-                req.session.name = result[0].name
-                res.render('',{
-                    alert: true,
-                    alertTitle: "Conexion Exitosa",
-                    alertMenssage: "LOGIN CORRECTO!!!",
-                    alertIcon: 'success',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    ruta: 'login'
-                });
-            }
-        })
-    }
+
+
+
+
+
+
+
+//11 - Metodo para la autenticacion
+app.post('/auth', async (req, res)=> {
+	const user = req.body.user;
+	const pass = req.body.pass;    
+    let passwordHash = await bcrypt.hash(pass, 8);
+	if (user && pass) {
+		connection.query('SELECT * FROM users_apofis WHERE user = ?', [user], async (error, results, fields)=> {
+			if( results.length == 0 || !(await bcrypt.compare(pass, results[0].pass)) ) {    
+				res.render('', {
+                        alert: true,
+                        alertTitle: "Error",
+                        alertMenssage: "USUARIO y/o PASSWORD incorrectas",
+                        alertIcon:'error',
+                        showConfirmButton: true,
+                        timer: false,
+                        ruta: ''    
+                    });
+				
+				//Mensaje simple y poco vistoso
+                //res.send('Incorrect Username and/or Password!');				
+			} else {         
+				//creamos una var de session y le asignamos true si INICIO SESSION       
+				req.session.loggedin = true;                
+				req.session.name = results[0].name;
+				res.render('', {
+					alert: true,
+					alertTitle: "Conexión exitosa",
+					alertMenssage: "¡LOGIN CORRECTO!",
+					alertIcon:'success',
+					showConfirmButton: false,
+					timer: 1500,
+					ruta: 'login'
+				});        			
+			}			
+			res.end();
+		});
+	} else {	
+		res.send('Please enter user and Password!');
+		res.end();
+	}
+});
+
+//12 - Método para controlar que está auth en todas las páginas
+app.get('/login', (req, res)=> {
+	if (req.session.loggedin) {
+		res.render('login',{
+			login: true,
+			name: req.session.name			
+		});		
+	} else {
+		res.render('login',{
+			login:false,
+			name:"erroS"
+		});				
+	}
+	res.end();
+});
+
+
+// 13 función para limpiar la caché luego del logout
+app.use(function(req, res, next) {
+    if (!req.user)
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    next();
+});
+
+ // 14 Logout
+app.get('/logout', function (req, res) {
+	req.session.destroy(() => {
+	  res.redirect('/') // siempre se ejecutará después de que se destruya la sesión
+	})
+});
+
+// 15 error 404
+
+app.use((req,res,next)=>{
+	res.status(404).render("404");
 })
 
-//12 auth pages
-
-app.get('/login',(req, res)=>{
-    if(req.session.loggedin){
-        res.render('login',{
-            login:true,
-            name:req.session.name
-        });
-    }else{
-        res.render('login',{
-            login: false,
-            name:'Debe iniciar sesion'
-        })
-    }
+app.listen(3000, (req, res)=>{
+    console.log('SERVER RUNNING IN http://localhost:3000');
 });
-
-//13 Logout
-app.get('/logout',(req, res)=>{
-    req.session.destroy(()=>{
-        res.redirect('/');
-    })
-
-});
-
-
-app.listen(3000, (req , res)=>{
-    console.log('Server UP running in hhtp://localhost:3000');
-});
-
-//Comandos de pruebas
-
-//console.log(__dirname);
