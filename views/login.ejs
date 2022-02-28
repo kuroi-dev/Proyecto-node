@@ -203,7 +203,7 @@
 
               <div class="carousel-item" data-bs-interval="100000000000" id="main-bots" >
 
-                <h1 class="display-8 fw-normal">Ultima ejecucion del Bot</h1>
+                <h2 class="display-10 fw-normal">ULTIMA EJECUCION DEL BOT</h2>
                
 
                 <div>
@@ -214,7 +214,7 @@
                         <th >Fecha de ejecucion</th>
                         <th >Hora de ejecucion</th>
                         <th >Tiempo de ejecucion</th>
-                        <th >Estado</th>
+                        <th >Boton de Estado</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -223,18 +223,116 @@
                         <td>02/08/2022</td>
                         <td>15:00</td>
                         <td>23,5 seg</td>
-                        <td>Correcto</td>
+                        <td><button type="button" class="btn btn-success" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Correcto</button></td>
                       </tr>
                       <tr>
                         <td>J.Home-2.00</td>
                         <td>02/08/2022</td>
                         <td>11:00</td>
                         <td>63,5 seg</td>
-                        <td>Error</td>
+                        <td><button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Error</button></td>
                       </tr>
                       
                     </tbody>
                   </table>
+                </div>
+
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <h3>BOT: J.Home-1.00</h3>
+                    <table class="table table2 bg-dark">
+                      <thead>
+                        <tr>
+                          <th >PASO</th>
+                          <th >TIEMPO</th>
+                          <th >PATRON</th>
+                          <th >ESTADO</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1 Home</td>
+                          <td>4 seg</td>
+                          <td>Bienvenidos</td>
+                          <td><button type="button" class="btn btn-primary" >Correcto</button></td>
+                        </tr>
+                        <tr>
+                          <td>2 Login</td>
+                          <td>3,8 seg</td>
+                          <td>Su usuario es:</td>
+                          <td><button type="button" class="btn btn-primary" >Correcto</button></td>
+                        </tr>
+                        <tr>
+                          <td>4 Carro de compras</td>
+                          <td>7.9 seg</td>
+                          <td>Pagar</td>
+                          <td><button type="button" class="btn btn-primary" >Correcto</button></td>
+                        </tr>
+                        <tr>
+                          <td>4 Logout</td>
+                          <td>5 seg</td>
+                          <td>Bienvenidos</td>
+                          <td><button type="button" class="btn btn-primary" >Correcto</button></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <h3>BOT: J.Home-2.00</h3>
+                    <table class="table table2 bg-dark">
+                      <thead>
+                        <tr>
+                          <th >PASO</th>
+                          <th >TIEMPO</th>
+                          <th >PATRON</th>
+                          <th >ESTADO</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1 Home</td>
+                          <td>4 seg</td>
+                          <td>Bienvenidos</td>
+                          <td><button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Correcto</button></td>
+                        </tr>
+                        <tr>
+                          <td>2 Login</td>
+                          <td>3,8 seg</td>
+                          <td>Su usuario es:</td>
+                          <td><button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Correcto</button></td>
+                        </tr>
+                        <tr>
+                          <td>3 Carro de compras</td>
+                          <td>7.9 seg</td>
+                          <td>Pagar</td>
+                          <td><button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Error</button></td>
+                        </tr>
+                        <tr>
+                          <td>3 Carro de compras</td>
+                          <td>7.9 seg</td>
+                          <td>Pagar</td>
+                          <td><button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Error</button></td>
+                        </tr>
+                        <tr>
+                          <td>3 Carro de compras</td>
+                          <td>7.9 seg</td>
+                          <td>Pagar</td>
+                          <td><button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Error</button></td>
+                        </tr>
+                        <tr>
+                          <td>3 Carro de compras</td>
+                          <td>7.9 seg</td>
+                          <td>Pagar</td>
+                          <td><button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Error</button></td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+
+                  </div>
                 </div>
 
               </div>

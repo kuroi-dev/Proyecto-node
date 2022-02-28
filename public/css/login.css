@@ -55,6 +55,7 @@ body {
     height: 100%;
     text-align: center;
     padding:2% 5%;
+    overflow: hidden;
 
 }
 
@@ -82,7 +83,17 @@ body {
     height: 100%;
     padding:20% 8%;
 }
-#main-bots h1{
-    margin: 2% 0%;
+#main-bots h2{
+    margin: 1% 0%;
     margin-bottom: 5%;
+}
+
+.accordion-collapse{
+    margin-top: 3%;
+    border-top: solid 2px gray;
+}
+.table2{
+    color:white;
+    border-radius: 5px;
+    text-align: left;
 }
