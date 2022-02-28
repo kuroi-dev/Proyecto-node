@@ -30,3 +30,59 @@ body {
 #nav-main{
     padding-bottom: 1%;
 }
+
+
+#main-home{
+    width: 100%;
+    height: 100%;
+    background-image: url(/resources/img/background/fondo5.jpg);
+    background-size: cover;
+    background-position: center;
+    color:white;
+}
+#main-proyect{
+
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    color:black;
+    padding:2% 5%;
+
+}
+#main-bots{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding:2% 5%;
+
+}
+
+#carrusel{
+    width: 100%;
+    height: 100%;
+}
+#menuLeft{
+    z-index: 20;
+}
+#main-home-2{
+    padding: 2% 10%;
+}
+#main-home-2 p{ 
+    margin-top: 8%;
+}
+#main-home-2 button{
+    color: white;
+    font-size: 24px;
+}
+
+#stela{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    padding:20% 8%;
+}
+#main-bots h1{
+    margin: 2% 0%;
+    margin-bottom: 5%;
+}
