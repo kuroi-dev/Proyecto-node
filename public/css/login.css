@@ -15,85 +15,123 @@ body {
     width: 100%;
     height: 100%;
 }
-#logo{
-    width:100%; 
-    height:auto;
+
+#logo {
+    width: 100%;
+    height: auto;
 }
-#cosa{
+
+#cosa {
     width: 100%;
 }
-#main-1{
+
+#main-1 {
     width: 100%;
     height: 100%;
     padding: 1% 2%;
 }
-#nav-main{
+
+#nav-main {
     padding-bottom: 1%;
 }
 
-
-#main-home{
+#main-home {
     width: 100%;
     height: 100%;
     background-image: url(/resources/img/background/fondo5.jpg);
     background-size: cover;
     background-position: center;
-    color:white;
+    color: white;
 }
-#main-proyect{
 
+#main-proyect {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    color:black;
-    padding:2% 5%;
-
+    color: black;
+    padding: 2% 5%;
 }
-#main-bots{
+
+#main-bots {
     width: 100%;
     height: 100%;
     text-align: center;
-    padding:2% 5%;
-    overflow: hidden;
-
+    padding: 2% 5%;
 }
 
-#carrusel{
+#main-planes {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 2% 8%;
+    padding-bottom: 5%;
+}
+
+#tabla-bots {
+    height: 20%;
+    overflow: hidden;
+}
+
+#tabla-err {
+    overflow: auto;
+    height: 70%;
+}
+
+#tabla-errors {
+    height: 100%;
+}
+
+#main-planes h1 {
+    margin-bottom: 5%;
+}
+
+#carrusel {
     width: 100%;
     height: 100%;
 }
-#menuLeft{
+
+#menuLeft {
     z-index: 20;
 }
-#main-home-2{
+
+#main-home-2 {
     padding: 2% 10%;
 }
-#main-home-2 p{ 
+
+#main-home-2 p {
     margin-top: 8%;
 }
-#main-home-2 button{
+
+#main-home-2 button {
     color: white;
     font-size: 24px;
 }
 
-#stela{
+#stela {
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
-    padding:20% 8%;
+    padding: 20% 8%;
 }
-#main-bots h2{
+
+#main-bots h2 {
     margin: 1% 0%;
     margin-bottom: 5%;
 }
 
-.accordion-collapse{
+.accordion-collapse {
     margin-top: 3%;
     border-top: solid 2px gray;
 }
-.table2{
-    color:white;
+
+.table2 {
+    color: white;
     border-radius: 5px;
     text-align: left;
+}
+
+#table-planes {
+    width: 70%;
+    margin: auto;
 }
