@@ -62,4 +62,17 @@
            }
        }
 
-       
+
+@font-face {
+    font-family: 'montse';
+    src: url('resources/font/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'lato';
+    src: url('resources/font/Lato-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
