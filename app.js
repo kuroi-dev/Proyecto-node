@@ -161,6 +161,27 @@ app.use((req,res,next)=>{
 	res.status(404).render("404");
 })
 
+
+
+
+
+
+
+
+//_______________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000');
 });
