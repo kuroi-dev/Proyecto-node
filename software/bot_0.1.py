@@ -1,4 +1,4 @@
-#CREADO y EDITADO POR: KUROI OF APOFIS
+#CREADO y EDITADO POR: KUROI-DEV OF APOFIS
 
 import time
 import math
@@ -22,54 +22,62 @@ connection = pymysql.connect(
 
 #  Abrir navegador 
 
-browser = webdriver.Chrome('./chromedriver')
-sleep(random.uniform(0.8,1.0))
-browser.set_window_size(1000, 900)
-sleep(random.uniform(1.0,2.0))
 
+driver = webdriver.Chrome('./chromedriver')
 
+inicio = time.time()
 
-#browser.get('http://192.168.0.1')
-#sleep(random.uniform(8.0,10.0))
-#user = browser.find_element_by_xpath('//input[@id="UserName"]')
-#sleep(random.uniform(0.5,1.0))
-#user.click()
-#sleep(random.uniform(0.5,1.0))
-#user.send_keys('admin')
-#sleep(random.uniform(1,3))
-#passw = browser.find_element_by_xpath('//input[@id="Password"]')
-#sleep(random.uniform(0.5,1.0))
-#passw.click()
-#sleep(random.uniform(0.5,1.0))
-#passw.send_keys('password')
-#sleep(random.uniform(1,3))
-#entrar = browser.find_element_by_xpath('//input[@class="submitBtn"]')
-#sleep(random.uniform(0.5,1.0))
-#entrar.click()
-#sleep(random.uniform(10.0,12.0))
-#sleep(random.uniform(0.5,1.0))
-#browser.get('http://192.168.0.1/router.html?wifi_mac')
-#sleep(random.uniform(5.0,7.0))
-#mac = browser.find_element_by_xpath('//input[@id="Mac_Add"]')
-#sleep(random.uniform(0.5,1.0))
-#mac.click()
-#sleep(1)
-#macAddress2 = browser.find_element_by_xpath('//input[@id="MacAddress"]')
-#sleep(random.uniform(0.5,1.0))
-#macAddress2.click()
-#sleep(random.uniform(0.5,1.0))
-#macAddress2.send_keys('22:33:44:55:66:44')
-#sleep(random.uniform(1,3))
-#aceptar2 = browser.find_element_by_xpath('/html/body/div[2]/div[11]/div/button[1]')
-#sleep(random.uniform(0.5,1.0))
-#aceptar2.click()
-#sleep(random.uniform(2.0,3.0))
-#aplicar = browser.find_element_by_xpath('//input[@id="Mac_Apply"]')
-#sleep(random.uniform(0.5,1.0))
-#aplicar.click()
-#sleep(random.uniform(5.0,5.1))
-#driver.close()
-#sleep(random.uniform(0.5,1.0))
+driver.get("https://lider.cl/")
+try:
+	element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "prehomegr_card_icono_supermercado")))
+	driver.get("https://www.lider.cl/supermercado/")
+	element2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "bannerCarousel")))
+	driver.get("https://www.lider.cl/supermercado/category/Campanas/Volvamos-con-Todo/Art%C3%ADculos-de-Oficina/Papel-Fotocopia/_/N-16bfe23")
+	element3 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "content-prod-boxes")))
+	sleep(random.uniform(1.0,2.0))
 
+	boton1 = driver.find_element_by_xpath('//button[@class="btn btn-info btn-block btn-agregar js-btn-agregar"]')
+	sleep(random.uniform(1.0,2.0))
+	boton1.click()
+	sleep(random.uniform(1.0,2.0))
 
+	boton2 = driver.find_element_by_xpath('//button[@title="SELECCIONA REGIÓN:"]')
+	sleep(random.uniform(1.0,2.0))
+	boton2.click()
+	sleep(random.uniform(1.0,2.0))
 
+	rm = driver.find_element_by_xpath('//*[@id="regions-hasDelivery"]/div/div/ul/li[2]/a')
+	sleep(random.uniform(1.0,2.0))
+	rm.click()
+	sleep(random.uniform(1.0,2.0))
+
+	boton3 = driver.find_element_by_xpath('//button[@title="Selecciona Comuna:"]')
+	sleep(random.uniform(1.0,2.0))
+	boton3.click()
+	sleep(random.uniform(1.0,2.0))
+
+	comuna = driver.find_element_by_xpath('//*[@id="communes-hasDelivery"]/div/div/ul/li[60]/a')
+	sleep(random.uniform(1.0,2.0))
+	comuna.click()
+	sleep(random.uniform(1.0,2.0))
+
+	confirmar = driver.find_element_by_xpath('//*[@id="btn-shipping-service-delivery"]')
+	sleep(random.uniform(1.0,2.0))
+	confirmar.click()
+	sleep(random.uniform(1.0,2.0))
+	
+	element4 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "quickCartNewBox")))
+	sleep(random.uniform(1.0,2.0))
+
+	box = driver.find_element_by_xpath('//*[@id="quickCartNewBox"]')
+	sleep(random.uniform(1.0,2.0))
+	box.click()
+	sleep(random.uniform(1.0,2.0))
+
+    
+finally:
+	print("Timed out waiting for page to load")
+
+driver.quit()
+fin = time.time()
+print(fin-inicio)

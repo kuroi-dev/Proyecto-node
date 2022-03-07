@@ -21,7 +21,7 @@ app.use(express.json());
 const bcrypt = require('bcryptjs');
 
 // Revisar este codigo para credenciales y sesiones     
-// 7 Invocamos express-session para las Variables de Sesion
+// 7 Invocamos express-session para las Variables de Session
 const session = require('express-session');
 app.use(session({
     secret:'secret',
@@ -42,6 +42,9 @@ app.get('/',(req, res)=>{
     res.render('index');
 })
 
+app.get('/hi',(req,res)=>{
+	res.render('hi')
+})
 app.get('/error.404',(req,res)=>{
 	res.render('error-404')
 })
@@ -73,13 +76,6 @@ app.post('/register', async(req,res)=>{
         }
     });
 })
-
-
-
-
-
-
-
 
 
 //11 - Metodo para la autenticacion
