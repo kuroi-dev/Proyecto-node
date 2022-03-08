@@ -2,13 +2,37 @@ html,
 body {
     height: 100%;
 }
+.title1{
+    font-size: 50px;
+}
+
+@font-face {
+    font-family: 'montse';
+    src: url('/resources/font/montse.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'lato';
+    src: url('/resources/font/lato.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'simpli';
+    src: url('/resources/font/simpli.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
 
 body {
     display: flex;
     align-items: center;
-    background-image: url(/resources/img/background/fondo3.jpg);
+    background-image: url(/resources/img/background/fondo2.jpeg);
     background-size: cover;
     background-position: center;
+    font-family: "lato";
 }
 
 #background-mod {
@@ -66,7 +90,13 @@ body {
     margin: auto;
     margin-top: 1%;
 }
-
+.nav-link1{
+    padding: 0.5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .5);
+    background-color: transparent;
+    text-decoration: none;
+}
 #home-home p {
     padding: 2%;
     height: 100%;
@@ -90,6 +120,10 @@ body {
     justify-content: center;
     text-align: center;
     align-items: center;
+}
+
+#text2{
+    font-size: 23px;
 }
 
 #interBlock {
@@ -122,6 +156,10 @@ body {
 #cont-nav1 {
     float: right;
     margin-top: 5%;
+}
+#cont-nav1 a{
+    font-family: "simpli";
+    font-size: 25px;
 }
 
 #espacio{
@@ -206,3 +244,5 @@ body.swal2-height-auto{
         margin: auto;
     }
 }
+
+

@@ -17,6 +17,9 @@
     <!-- Custom styles for this template -->
     <link href="resources/css/cover.css" rel="stylesheet">
     <link href="resources/css/style.css" rel="stylesheet">
+    <link href="resources/css/css-button.css" rel="stylesheet">
+    <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="resources/img/logo/LOGO-LOGO-NEGRO.svg">
+    
 </head>
 
 <body class="text-center text-white">
@@ -29,9 +32,9 @@
                     </div>
                     <div  class="colum col-md-6">
                         <nav class="nav nav-masthead" id="cont-nav1">
-                            <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="nav-link text-white mb-3 fw-small">HOME</a>
-                            <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="nav-link text-white mb-3 fw-small">LOGIN</a>
-                            <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="nav-link text-white mb-3 fw-small">CONTACTO</a>
+                            <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="nav-link1 text-white mb-3 fw-small">HOME</a>
+                            <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="nav-link1 text-white mb-3 fw-small">LOGIN</a>
+                            <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="nav-link1 text-white mb-3 fw-small">CONTACTO</a>
                         </nav>
                     </div>
                 </div>
@@ -42,10 +45,10 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="100000000000" id="home-home">
                         <main class="px-3 d-block w-100">
-                            <h1 id="text1">Estamos Cambiando...</h1>
-                            <p class="lead" id="text2">Creando un nuevo concepto en robotica y automatizacion. <br> <br>Apofis, se encuentra en un cambio importante, focalizando sus energias solo en la creacion de Bots de alta complejidad con el fin de automatizar tareas cotidianas de informatica</p>
+                            <h1 id="text1" class="title1">Estamos Cambiando...</h1>
+                            <p class="lead" id="text2">Creando un nuevo concepto en robotica y automatizacion. <br>Apofis, se encuentra en un cambio importante, focalizando sus energias solo en la creacion de Bots de alta complejidad con el fin de automatizar tareas cotidianas de informatica</p>
                             <p class="lead">
-                                <a href="hi" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Interesado ?</a>
+                                <a class="button" href="hi">Interesado ?</a>
                             </p>
                         </main>
                     </div>
@@ -59,7 +62,7 @@
 
                                         <form class="form-horizontal" id="formulario" action="/auth"  method="POST" >
                                             <div id="cantacto">
-                                                <legend class="h1 mb-3 fw-small">Login</legend>
+                                                <legend class="fw-small title1">Login</legend>
                                                 <div class="form-group" id="espacio">
                                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                                                     <div>
@@ -74,10 +77,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group" id="espacio-btn">
-                                                    <div class="col-md-12 text-center">
-                                                        <button id="boton1" class="btn btn-lg btn-success" type="submit" value="Login">Login</button>
-                                                        <a id="boton1" class="btn btn-lg btn-primary"  type="button" href="/register">Registro</a>
+                                                    <div class=" text-center">
+                                                        <button id="btn1" class="button"  type="submit" value="Login">Login</button>
                                                     </div>
+                                                    <a class="button"  type="button" href="/register">Registro</a>
                                                 </div>
                                             </div>
                                         </form>        
@@ -91,7 +94,7 @@
                         <div class="container row col-md-12 well well-sm">
                             <form class="form-horizontal" method="post">
                                 <div id="cantacto" style="padding: 5%;">
-                                    <legend class="h1 mb-3 fw-small">Contacto</legend>
+                                    <legend class="title1 fw-small">Contacto</legend>
                                     <div class="form-group" id="espacio">
                                         <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                                         <div>
@@ -112,7 +115,7 @@
                                     </div>
                                     <div class="form-group" id="espacio">
                                         <div class="col-md-12 text-center" id="espacio">
-                                            <button type="submit" class="btn btn-success btn-lg">Enviar consulta</button>
+                                            <button type="submit" class="button">Enviar</button>
                                         </div>
                                     </div>
                                 </div>
