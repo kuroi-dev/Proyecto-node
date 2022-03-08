@@ -10,7 +10,7 @@ body{
 body #background-mod{
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 #block-hi{
@@ -24,7 +24,23 @@ body #background-mod{
 }
 #block-2{
     width: 50%;
+    margin:auto;
+    overflow: scroll;
+    height: 100%;
+    padding: 10% 3%;
+
+}
+#block-2 p{
+    font-size: 20px;
+    color: white;
+}
+#apofis{
+    font-style: italic;
+    color: aqua;
 }
 #logo-hi{
     width: 95%;
+}
+#falla{
+    color: red;
 }
