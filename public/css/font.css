@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'montse';
+    src: url('/resources/font/montse.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'lato';
+    src: url('/resources/font/lato.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'simpli';
+    src: url('/resources/font/simpli.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'lator';
+    src: url('/resources/font/Lator.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}

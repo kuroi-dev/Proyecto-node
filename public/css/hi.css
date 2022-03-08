@@ -10,7 +10,7 @@ body{
 body #background-mod{
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #block-hi{
@@ -25,10 +25,10 @@ body #background-mod{
 #block-2{
     width: 50%;
     margin:auto;
-    overflow: scroll;
+    overflow: auto;
     height: 100%;
-    padding: 10% 3%;
-
+    padding: 5% 3%;
+    font-family: "lator";
 }
 #block-2 p{
     font-size: 20px;
