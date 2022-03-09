@@ -82,7 +82,7 @@ body {
 #home-home{
     margin-top: 5%;
 }
-.foot{
+.foot i{
     color: salmon;
 }
 
@@ -103,9 +103,10 @@ body {
 
 #text2{
     font-size: 23px;
-    font-weight: 700;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.6);
+    font-weight: 900;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    font-family: "lator";
 }
 
 #interBlock {
