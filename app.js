@@ -168,10 +168,32 @@ app.use((req,res,next)=>{
 
 
 
+// acceso a Base de datos del usuario
 
 
+/*app.post('/login', async(req,res)=>{
+    const user = req.body.user;
+    const name = req.body.name;
+    const email = req.body.email;
+    const pass = req.body.pass;
 
-
+    connection.query('INSERT INTO user_full SET ?', {user:user,name:name,email:email,pass:pass},async(error,results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            console.log('Alta exitosa')
+            res.render('register',{
+                alert: true,
+                alertTitle: "Registro",
+                alertMenssage: "Registro exitoso!",
+                alertIcon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
+                ruta: ''
+            })
+        }
+    });
+})*/
 
 
 app.listen(3000, (req, res)=>{

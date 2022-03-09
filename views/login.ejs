@@ -71,9 +71,8 @@
                     <strong><%= name %></strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="#">Nuevo proyecto</a></li>
-                    <li><a class="dropdown-item" href="#">Configuracion</a></li>
-                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><a type="button" data-bs-target="#carrusel" data-bs-slide-to="5" aria-label="Slide 6" class="dropdown-item">PERFIL</a></li>
+                    
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -524,6 +523,73 @@
                     </div>
                 </main>
             </div>
+
+            <div class="carousel-item text-center" data-bs-interval="100000000000" id="main-planes">
+                <div id="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                    <div class="">
+                        
+                        <form class="form-horizontal" id="formulario" action="/login"  method="POST" enctype="multipart/form-data" >
+                            <div id="cantacto">
+                                <legend class="fw-small title1">Datos personales</legend>
+
+                                <div class="form-group" id="espacio">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                    <div>
+                                        <input type="text" class="form-control" name="user_full" id="user_full" placeholder="Nombre Completo" required placeholder="Nombre Completo">
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="espacio">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                    <div>
+                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Telefono" required placeholder="phone">
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="espacio">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                    <div>
+                                        <input type="text" class="form-control" name="adress" id="adress" placeholder="Direccion" required placeholder="adress">
+                                    </div>
+                                </div>
+                               
+                                <div class="form-group" id="espacio">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                    <div >
+                                        <input type="file" class="form-control" name="img" id="img" placeholder="img" required placeholder="img">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group" id="espacio-btn">
+                                    <div class=" text-center">
+                                        <button id="" class="button"  type="submit" >Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>               
+                        
+            
+            
+                    <% if(typeof alert != "undefined") { %>
+                        <script>
+                            Swal.fire({
+                                title: '<%= alertTitle %>',
+                                text:'<%= alertMenssage %>',
+                                icon:'<%= alertIcon %>',
+                                showConfirmButton:<%= showConfirmButton %>,
+                                timer:<%= timer %>,
+                                heightAuto:false
+                            }).then(()=>{
+                                window.location='/ <%= ruta %>'
+                            })
+                        </script>
+                    <% } %>    
+                </div>
+            </div>
+
+<!--Fin de carrusel-->
+
 
 
         </div>
