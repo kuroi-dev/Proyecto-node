@@ -2,6 +2,8 @@
 const express = require ('express');
 const app = express();
 
+
+
 // 2 Seteamos motor de plantilla EJS
 app.set('view engine', 'ejs');
 
@@ -34,21 +36,8 @@ const connection = require('./database/db');
 
 // 9 Estableciendo las Rutas
 
-app.get('/register',(req,res)=>{
-    res.render('register');
-})
-
-app.get('/',(req, res)=>{
-    res.render('index');
-})
-
-app.get('/hi',(req,res)=>{
-	res.render('hi')
-})
-app.get('/error.404',(req,res)=>{
-	res.render('error-404')
-})
-
+const router = express.Router();
+app.use(require('./routes/'));
 
 
 // 10 - registro
@@ -102,6 +91,8 @@ app.post('/auth', async (req, res)=> {
 				//creamos una var de session y le asignamos true si INICIO SESSION       
 				req.session.loggedin = true;                
 				req.session.name = results[0].name;
+                req.session.email = results[0].email;
+                req.session.user = results[0].user;
 				res.render('', {
 					alert: true,
 					alertTitle: "Conexión exitosa",
@@ -120,36 +111,13 @@ app.post('/auth', async (req, res)=> {
 	}
 });
 
-//12 - Método para controlar que está auth en todas las páginas
-app.get('/login', (req, res)=> {
-	if (req.session.loggedin) {
-		res.render('login',{
-			login: true,
-			name: req.session.name			
-		});		
-	} else {
-		res.render('login',{
-			login:false,
-			name:"erroS"
-		});				
-	}
-	res.end();
-});
-
-
-// 13 función para limpiar la caché luego del logout
+// 12 función para limpiar la caché luego del logout
 app.use(function(req, res, next) {
     if (!req.user)
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
     next();
 });
 
- // 14 Logout
-app.get('/logout', function (req, res) {
-	req.session.destroy(() => {
-	  res.redirect('/') // siempre se ejecutará después de que se destruya la sesión
-	})
-});
 
 // 15 error 404
 
@@ -166,34 +134,6 @@ app.use((req,res,next)=>{
 
 //_______________________________________________________
 
-
-
-// acceso a Base de datos del usuario
-
-
-/*app.post('/login', async(req,res)=>{
-    const user = req.body.user;
-    const name = req.body.name;
-    const email = req.body.email;
-    const pass = req.body.pass;
-
-    connection.query('INSERT INTO user_full SET ?', {user:user,name:name,email:email,pass:pass},async(error,results)=>{
-        if(error){
-            console.log(error);
-        }else{
-            console.log('Alta exitosa')
-            res.render('register',{
-                alert: true,
-                alertTitle: "Registro",
-                alertMenssage: "Registro exitoso!",
-                alertIcon: 'success',
-                showConfirmButton: false,
-                timer: 1500,
-                ruta: ''
-            })
-        }
-    });
-})*/
 
 
 app.listen(3000, (req, res)=>{
