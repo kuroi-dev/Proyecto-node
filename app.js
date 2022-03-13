@@ -41,7 +41,7 @@ app.use(require('./routes/'));
 
 
 // 10 - registro
-app.post('/register', async(req,res)=>{
+app.post('/register', function async(req,res){
     const user = req.body.user;
     const name = req.body.name;
     const email = req.body.email;
@@ -68,7 +68,7 @@ app.post('/register', async(req,res)=>{
 
 
 //11 - Metodo para la autenticacion
-app.post('/auth', async (req, res)=> {
+app.post('/auth', function async(req, res) {
 	const user = req.body.user;
 	const pass = req.body.pass;    
     let passwordHash = await bcrypt.hash(pass, 8);
@@ -121,7 +121,7 @@ app.use(function(req, res, next) {
 
 // 15 error 404
 
-app.use((req,res,next)=>{
+app.use(function(req,res,next){
 	res.status(404).render("404");
 })
 
@@ -136,6 +136,6 @@ app.use((req,res,next)=>{
 
 
 
-app.listen(3000, (req, res)=>{
+app.listen(3000, function (req, res){
     console.log('SERVER RUNNING IN http://localhost:3000');
 });

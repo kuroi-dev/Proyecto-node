@@ -3,17 +3,17 @@ const router = express.Router();
 
 
 // 1 Pagina Home
-router.get('/',(req, res)=>{
+router.get('/',function(req, res){
     res.render('index');
 })
 
 // 2 Pagina Registro
-router.get('/register',(req,res)=>{
+router.get('/register',function(req,res){
     res.render('register');
 })
 
 // 3 Pagina de Conocenos
-router.get('/hi',(req,res)=>{
+router.get('/hi',function(req,res){
 	res.render('hi')
 })
 
@@ -21,7 +21,7 @@ router.get('/hi',(req,res)=>{
 
 // Pagina Login
 
-router.get('/login', (req, res)=> {
+router.get('/login', function(req, res) {
 
 
 	if (req.session.loggedin) {
@@ -41,7 +41,7 @@ router.get('/login', (req, res)=> {
 
 // pagina interna del Login
 
-router.get('/perfil',(req,res)=>{
+router.get('/perfil',function(req,res){
 
 
 	if (req.session.loggedin) {
@@ -67,7 +67,7 @@ router.get('/perfil',(req,res)=>{
 
 // Pagina Logout
 router.get('/logout', function (req, res) {
-	req.session.destroy(() => {
+	req.session.destroy(function ()  {
 	  res.redirect('/') // siempre se ejecutará después de que se destruya la sesión
 	})
 });
