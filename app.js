@@ -41,7 +41,7 @@ app.use(require('./routes/'));
 
 
 // 10 - registro
-app.post('/register', function async(req,res){
+app.post('/register',  async function start(req,res){
     const user = req.body.user;
     const name = req.body.name;
     const email = req.body.email;
@@ -68,7 +68,7 @@ app.post('/register', function async(req,res){
 
 
 //11 - Metodo para la autenticacion
-app.post('/auth', function async(req, res) {
+app.post('/auth', async function start(req, res) {
 	const user = req.body.user;
 	const pass = req.body.pass;    
     let passwordHash = await bcrypt.hash(pass, 8);

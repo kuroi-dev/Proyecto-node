@@ -11,7 +11,9 @@ connection.connect(function (error){
     if(error){
         console.log('El error de conexion a MYSQL es : ' + error);
     }
-    console.log('Conectado a DB');
+    else{
+        console.log('Conectado a DB');
+    }
 });
 
 module.exports = connection;
