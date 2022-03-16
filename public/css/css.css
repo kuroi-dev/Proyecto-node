@@ -12,4 +12,12 @@
   width: 70%;
   margin: auto;
 }
+
+#card13 legend {
+  font-family: 'lator';
+  color: black;
+  text-shadow: none;
+  font-weight: 200;
+  font-size: 35px;
+}
 /*# sourceMappingURL=css.css.map */

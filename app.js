@@ -101,7 +101,11 @@ app.post('/auth', async function start(req, res) {
 					showConfirmButton: false,
 					timer: 1500,
 					ruta: 'login'
-				});        			
+				});
+                console.log("Inicio") 
+
+
+                console.log("fin")     			
 			}			
 			res.end();
 		});
@@ -117,6 +121,9 @@ app.use(function(req, res, next) {
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
     next();
 });
+
+
+
 
 // 13 invocando multer Mildware
 const multer = require('multer');
