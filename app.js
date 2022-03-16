@@ -118,6 +118,10 @@ app.use(function(req, res, next) {
     next();
 });
 
+// 13 invocando multer Mildware
+const multer = require('multer');
+//app.use(multer({dest:path.join(__dirname, 'public/img/uploads')}).single('image'));
+
 
 // 15 error 404
 
