@@ -15,12 +15,12 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "node": "^17.4.0",
-    "nodemon": "^2.0.15",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":"nodemon app.js"
   },
   "author": "Apofis",
   "license": "ISC"

@@ -37,7 +37,7 @@ const connection = require('./database/db');
 // 9 Estableciendo las Rutas
 
 const router = express.Router();
-app.use(require('./routes/'));
+app.use(require('./routes'));
 
 
 // 10 - registro
