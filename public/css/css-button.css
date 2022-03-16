@@ -66,3 +66,46 @@
    #btn1{
        margin-bottom: 2%;
    }
+
+
+
+
+.center1{
+    margin: auto;
+
+}
+#card1{
+    height: 100%;
+}
+#card12{
+    margin: auto;
+}
+
+.neo-button {
+    width: 70px;
+    height: 70px;
+    outline: 0 !important;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'lator';
+    border: none;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #d6d6d6, #ffffff);
+    box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
+    transition: 5s;
+    font-weight: 900;
+    
+    border: 2px solid rgb(220, 220, 220);
+}
+
+
+
+.neo-button:active {
+    border-radius: 50%;
+    background: linear-gradient(145deg, #d6d6d6, #ffffff);
+    box-shadow: inset 20px 20px 60px #cacaca, inset -20px -20px 60px #ffffff
+}
+
+
+
