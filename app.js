@@ -1,5 +1,10 @@
-// 1 Invocamos express
+// 1 Invocamos Frameworks
 const express = require ('express');
+const dotenv = require('dotenv');
+const session = require('express-session');
+const multer = require('multer');
+
+
 const app = express();
 
 
@@ -8,7 +13,6 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // 3 Ivocamos a dotenv
-const dotenv = require('dotenv');
 dotenv.config({path:'./env/.env'});
 
 // 4 Directorio publico
@@ -24,7 +28,6 @@ const bcrypt = require('bcryptjs');
 
 // Revisar este codigo para credenciales y sesiones     
 // 7 Invocamos express-session para las Variables de Session
-const session = require('express-session');
 app.use(session({
     secret:'secret',
     resave: true,
@@ -123,10 +126,32 @@ app.use(function(req, res, next) {
 });
 
 
+app.post('/perfil', function(req,res){
+    const full_name = req.body.full_name;
+    const phone = req.body.phone;
+    const address = req.body.address;
+    const img = req.body.img;
+
+    connection.query('INSERT INTO user_full SET ?', {full_name:full_name,phone:phone,address:address,img:img},function(error,results){
+        if(error){
+            console.log(error);
+        }else{
+            console.log('Alta exitosa')
+            res.render('perfil',{
+                alert: true,
+                alertTitle: "Registro",
+                alertMenssage: "Registro exitoso!",
+                alertIcon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
+                ruta: ''
+            })
+        }
+    });
+})
 
 
 // 13 invocando multer Mildware
-const multer = require('multer');
 //app.use(multer({dest:path.join(__dirname, 'public/img/uploads')}).single('image'));
 
 
