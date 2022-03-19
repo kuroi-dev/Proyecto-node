@@ -154,6 +154,8 @@ app.post('/perfil', function(req,res){
 // 13 invocando multer Mildware
 //app.use(multer({dest:path.join(__dirname, 'public/img/uploads')}).single('image'));
 
+// 13 invocando multer Mildware
+
 
 // 15 error 404
 
