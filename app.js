@@ -105,10 +105,7 @@ app.post('/auth', async function start(req, res) {
 					timer: 1500,
 					ruta: 'login'
 				});
-                console.log("Inicio") 
-
-
-                console.log("fin")     			
+ 			
 			}			
 			res.end();
 		});
@@ -127,12 +124,15 @@ app.use(function(req, res, next) {
 
 
 app.post('/perfil', function(req,res){
-    const full_name = req.body.full_name;
-    const phone = req.body.phone;
-    const address = req.body.address;
-    const img = req.body.img;
+    const full_name = req.session.full_name;
+    const phone = req.session.phone;
+    const address = req.session.address;
+    const img = req.session.img;
+    console.log("Inicio") 
 
-    connection.query('INSERT INTO user_full SET ?', {full_name:full_name,phone:phone,address:address,img:img},function(error,results){
+
+    
+    connection.query('INSERT INTO user_full SET ?', {full_name:full_name,phone:phone,img:img},function(error,results){
         if(error){
             console.log(error);
         }else{
@@ -148,6 +148,7 @@ app.post('/perfil', function(req,res){
             })
         }
     });
+    console.log("fin")    
 })
 
 

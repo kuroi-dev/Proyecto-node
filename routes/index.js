@@ -50,11 +50,10 @@ router.get('/perfil',function(req,res){
 			name: req.session.name,
             email: req.session.email,
             user: req.session.user,
-
+			cod_user: req.session.cod_user
 			
             
 		});	
-		console.log("hola2")
 		
         
 	} else {
