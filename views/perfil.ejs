@@ -49,36 +49,38 @@
                 </div>
                 <div class="card p-3 py-4" id="card13">
                     <div class="text-center"> 
-                        <form class="form-horizontal" id="" action="/perfil"  method="POST" enctype="multipart/form-data" >
+                        <form class="form-horizontal" id="" action="/perfil"  method="POST" >
                             <div id="cantacto">
                                 <legend class="fw-small title1">Datos personales</legend>
             
                                 <div class="form-group" id="espacio">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                                     <div>
-                                        <input type="text" class="form-control" name="full_name" id="full_name" placeholder="Nombre Completo"  placeholder="Nombre Completo">
+                                        <input type="text" class="form-control" name="full_name" id="full_name" placeholder="User" required placeholder="User">
                                     </div>
                                 </div>
-            
+
                                 <div class="form-group" id="espacio">
-                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                                    <div>
-                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Telefono"  placeholder="phone">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                    <div >
+                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Password" required placeholder="Password">
                                     </div>
                                 </div>
+                              
+                                
             
 
-                               
+                               <!--
                                 <div class="form-group" id="espacio">
                                     <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                                     <div >
                                         <input type="file" class="form-control" name="img" id="img" placeholder="img"  placeholder="img">
                                     </div>
                                 </div>
-            
+            -->
             
                                 <div class="mt-5"> 
-                                    <button class="neo-button">Guardar</button> 
+                                    <button class="neo-button" type="submit">Guardar</button> 
                                     <button class="neo-button"><a href="login">Volver</a></button> 
                                 </div>
                             </div>
@@ -94,20 +96,20 @@
             
 
 
-        <% if(typeof alert != "undefined") { %>
-            <script>
-                Swal.fire({
-                    title: '<%= alertTitle %>',
-                    text:'<%= alertMenssage %>',
-                    icon:'<%= alertIcon %>',
-                    showConfirmButton:<%= showConfirmButton %>,
-                    timer:<%= timer %>,
-                    heightAuto:false
-                }).then(()=>{
-                    window.location='/ <%= ruta %>'
-                })
-            </script>
-        <% } %>    
+            <% if(typeof alert != "undefined") { %>
+                <script>
+                    Swal.fire({
+                        title: '<%= alertTitle %>',
+                        text:'<%= alertMenssage %>',
+                        icon:'<%= alertIcon %>',
+                        showConfirmButton:<%= showConfirmButton %>,
+                        timer:<%= timer %>,
+                        heightAuto:false
+                    }).then(()=>{
+                        window.location='/<%=ruta%>'
+                    })
+                </script>
+            <% } %>  
 
 </div>
 </body>

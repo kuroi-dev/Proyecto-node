@@ -36,6 +36,7 @@ app.use(session({
 
 // 8 Ivocando el modulo de conexion DB
 const connection = require('./database/db');
+const { application } = require('express');
 
 // 9 Estableciendo las Rutas
 
@@ -77,7 +78,7 @@ app.post('/auth', async function start(req, res) {
     let passwordHash = await bcrypt.hash(pass, 8);
 	if (user && pass) {
 		connection.query('SELECT * FROM users_apofis WHERE user = ?', [user], async (error, results, fields)=> {
-			if( results.length == 0 || !(await bcrypt.compare(pass, results[0].pass)) ) {    
+			if( results == 0 || !(await bcrypt.compare(pass, results[0].pass)) ) {    
 				res.render('', {
                         alert: true,
                         alertTitle: "Error",
@@ -92,7 +93,8 @@ app.post('/auth', async function start(req, res) {
                 //res.send('Incorrect Username and/or Password!');				
 			} else {         
 				//creamos una var de session y le asignamos true si INICIO SESSION       
-				req.session.loggedin = true;                
+				req.session.loggedin = true;           
+                req.session.cod_user = results[0].cod_user; 
 				req.session.name = results[0].name;
                 req.session.email = results[0].email;
                 req.session.user = results[0].user;
@@ -105,6 +107,7 @@ app.post('/auth', async function start(req, res) {
 					timer: 1500,
 					ruta: 'login'
 				});
+                
  			
 			}			
 			res.end();
@@ -115,6 +118,8 @@ app.post('/auth', async function start(req, res) {
 	}
 });
 
+
+
 // 12 función para limpiar la caché luego del logout
 app.use(function(req, res, next) {
     if (!req.user)
@@ -123,33 +128,21 @@ app.use(function(req, res, next) {
 });
 
 
-app.post('/perfil', function(req,res){
-    const full_name = req.session.full_name;
-    const phone = req.session.phone;
-    const address = req.session.address;
-    const img = req.session.img;
-    console.log("Inicio") 
+app.get('/logout', function (req, res) {
+	req.session.destroy(function ()  {
+	  res.redirect('/') // siempre se ejecutará después de que se destruya la sesión
+	})
+});
 
 
     
-    connection.query('INSERT INTO user_full SET ?', {full_name:full_name,phone:phone,img:img},function(error,results){
-        if(error){
-            console.log(error);
-        }else{
-            console.log('Alta exitosa')
-            res.render('perfil',{
-                alert: true,
-                alertTitle: "Registro",
-                alertMenssage: "Registro exitoso!",
-                alertIcon: 'success',
-                showConfirmButton: false,
-                timer: 1500,
-                ruta: ''
-            })
-        }
-    });
-    console.log("fin")    
-})
+//    connection.query('INSERT INTO user_full SET ?', {full_name:full_name,phone:phone},function(error,results){
+//        if(error){
+//          console.log(error);
+//        }else{
+//            console.log('Alta exitosa')
+//            
+//        }})
 
 
 // 13 invocando multer Mildware
