@@ -52,14 +52,58 @@ router.get('/perfil',function(req,res){
             email: req.session.email,
             user: req.session.user,
 			cod_user: req.session.cod_user
-		})	
-	router.post("/perfil",function(req,res){
-		const full_name = req.body.full_name;
-		const phone = req.body.phone; 
-		const cod_user = req.session.cod_user;
+		})
+
+
+
+
+
+
+
+
+		var codigo = req.session.cod_user;
+
+		console.log(codigo);
+	
+		connection.query('SELECT cod_user FROM user_complet', (error,rows)=>{
+
+
+			
+			console.log(rows);
+			console.log("SALTO DE LINEA ____________");
+
+			
+			var com = [];
+			com = JSON.stringify(rows);
+			
+			
+			var arra1 = [com];
+			
+			console.log(com); 
+			console.log(com[13]); 
+
+
+
+
+
+
+
+
+		})
+		
 		
 
-		connection.query('INSERT INTO user_complet SET ?', {cod_user:cod_user,full_name:full_name,phone:phone},(error, results) => {
+
+
+
+		router.post("/perfil",function(req,res){
+			const full_name = req.body.full_name;
+			const phone = req.body.phone; 
+			const cod_user = req.session.cod_user;
+			
+			
+
+			connection.query('INSERT INTO user_complet SET ?', {cod_user:cod_user,full_name:full_name,phone:phone},(error, results) => {
 
 				connection.end();
 				if (error) {
@@ -82,7 +126,8 @@ router.get('/perfil',function(req,res){
 					})
 				}
 			})
-	})
+			
+		})
 	
 	} else {
 		res.render('perfil',{
